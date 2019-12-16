@@ -83,13 +83,13 @@ pipeline {
                             // 7. Разблокирум запуск соединений и РЗ
                             lockIBTasks["lockIBTask_${infobase}"] = lockIBTask(server1c, port1c, infobase, user1c, pass1c, "unlock", permCode)
                         }
-                        parallel lockJobsStartTasks
                         parallel kickUsersTasks
+                        parallel lockIBTasks
                         parallel backupConfTasks
                         parallel backupBaseTasks
-                        parallel unlockJobsStartTasks
                         parallel prepareUpdateTasks
                         parallel updateIBTasks
+                        parallel unlockIBTasks
                     }
                 }
             }
