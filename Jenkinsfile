@@ -85,8 +85,8 @@ pipeline {
                         }
                         parallel lockIBTasks
                         parallel kickUsersTasks
-                        // parallel backupConfTasks
-                        // parallel backupBaseTasks
+                        parallel backupConfTasks
+                        parallel backupBaseTasks
                         parallel prepareUpdateTasks
                         parallel updateIBTasks
                         parallel unlockIBTasks
