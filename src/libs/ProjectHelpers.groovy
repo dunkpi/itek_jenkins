@@ -4,16 +4,16 @@ package libs
 //
 // Параметры:
 //  server1c - сервер 1c
-//  server1cPort - порт сервера 1с
+//  port1c - порт сервера 1с
 //  infobase - имя базы на сервере 1c и sql
 //  user - имя админа 1С базы
-//  pwd - пароль админа 1С базы
+//  pass - пароль админа 1С базы
 //  action - lock/unlock - заблокировать/разблокировать РЗ
-//  permissionCode - код блокирования ИБ
+//  permCode - код блокирования ИБ
 //
-def lockIBTask(server1c, server1cPort, infobase, user, pwd, action, permissionCode) {
+def lockIBTask(server1c, port1c, infobase, user, pass, action, permCode) {
     utils = new Utils()
-    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/lock_ib.vbs \"${server1c}\" \"${server1cPort}\" \"${infobase}\" \"${user}\" \"${pwd}\" \"${action}\" \"${permissionCode}\"")
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/lock_ib.vbs \"${server1c}\" \"${port1c}\" \"${infobase}\" \"${user}\" \"${pass}\" \"${action}\" \"${permCode}\"")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при изменении возможности запуска РЗ для  ${infobase} на ${action}")
     }
@@ -23,14 +23,14 @@ def lockIBTask(server1c, server1cPort, infobase, user, pwd, action, permissionCo
 //
 // Параметры:
 //  server1c - сервер 1c
-//  server1cPort - порт сервера 1с
+//  port1c - порт сервера 1с
 //  infobase - имя базы на сервере 1c и sql
 //  user - имя админа 1С базы
-//  pwd - пароль админа 1С базы
+//  pass - пароль админа 1С базы
 //
-def kickUsers(server1c, server1cPort, infobase, user, pwd) {
+def kickUsers(server1c, port1c, infobase, user, pass) {
     utils = new Utils()
-    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/kick_users.vbs \"${server1c}\" \"${server1cPort}\" \"${infobase}\" \"${user}\" \"${pwd}\"")
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/kick_users.vbs \"${server1c}\" \"${port1c}\" \"${infobase}\" \"${user}\" \"${pass}\"")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при выбрасывании пользователей из  ${infobase}")
     }
@@ -43,13 +43,13 @@ def kickUsers(server1c, server1cPort, infobase, user, pwd) {
 //  server1c - сервер 1c
 //  infobase - имя базы на сервере 1c и sql
 //  user - имя админа 1С базы
-//  pwd - пароль админа 1С базы
+//  pass - пароль админа 1С базы
 //  backupDir - директория для сохранения бэкапа конфигурации
-//  permissionCode - код блокирования ИБ
+//  permCode - код блокирования ИБ
 //
-def backupConf(platform1c, server1c, infobase, user, owd, backupDir, permissionCode) {
+def backupConf(platform1c, server1c, infobase, user, pass, backupDir, permCode) {
     utils = new Utils()
-    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/backup_conf.vbs \"${platform1c}\" \"${server1c}\" \"${infobase}\" \"${user}\" \"${pwd}\" \"${backupDir}\" \"${permissionCode}\"")
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/backup_conf.vbs \"${platform1c}\" \"${server1c}\" \"${infobase}\" \"${user}\" \"${pass}\" \"${backupDir}\" \"${permCode}\"")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при сохранении конфигурации базы ${infobase}")
     }
@@ -62,13 +62,13 @@ def backupConf(platform1c, server1c, infobase, user, owd, backupDir, permissionC
 //  server1c - сервер 1c
 //  infobase - имя базы на сервере 1c и sql
 //  user - имя админа 1С базы
-//  pwd - пароль админа 1С базы
+//  pass - пароль админа 1С базы
 //  backupDir - директория для сохранения бэкапа конфигурации
-//  permissionCode - код блокирования ИБ
+//  permCode - код блокирования ИБ
 //
-def backupBase(platform1c, server1c, infobase, user, owd, backupDir, permissionCode) {
+def backupBase(platform1c, server1c, infobase, user, pass, backupDir, permCode) {
     utils = new Utils()
-    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/backup_ib.vbs \"${platform1c}\" \"${server1c}\" \"${infobase}\" \"${user}\" \"${pwd}\" \"${backupDir}\" \"${permissionCode}\"")
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/backup_ib.vbs \"${platform1c}\" \"${server1c}\" \"${infobase}\" \"${user}\" \"${pass}\" \"${backupDir}\" \"${permCode}\"")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при сохранении информационной базы ${infobase}")
     }
@@ -81,15 +81,15 @@ def backupBase(platform1c, server1c, infobase, user, owd, backupDir, permissionC
 //  backupDir - директория для сохранения бэкапа конфигурации
 //  repServer1c - сервер 1с базы, подлключенной к хранилищу
 //  repInfobase - база 1с, подключенная к хранилищу
-//  repIBUser - пользователь базы 1с, подключенной к хранилищу
-//  repIBPassw - пароль пользователя базы 1с, подключенной к хранилищу
-//  repAddress - адрес хранилища
+//  repUser1c - пользователь базы 1с, подключенной к хранилищу
+//  repPass1c - пароль пользователя базы 1с, подключенной к хранилищу
+//  repPath - адрес хранилища
 //  repUser - пользователь хранилища
-//  repPassw - пароль пользователя хранилища
+//  repPass - пароль пользователя хранилища
 //
-def prepareUpdate(platform1c, backupDir, repServer1c, repInfobase, repIBUser, repIBPassw, repAddress, repUser, repPassw) {
+def prepareUpdate(platform1c, backupDir, repServer1c, repInfobase, repUser1c, repPass1c, repPath, repUser, repPass) {
     utils = new Utils()
-    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/prepare_update.vbs \"${platform1c}\" \"${backupDir}\" \"${repServer1c}\" \"${repInfobase}\" \"${repIBUser}\" \"${repIBPassw}\" \"${repAddress}\" \"${repUser}\" \"${repPassw}\"")
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/prepare_update.vbs \"${platform1c}\" \"${backupDir}\" \"${repServer1c}\" \"${repInfobase}\" \"${repUser1c}\" \"${repPass1c}\" \"${repPath}\" \"${repUser}\" \"${repPass}\"")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при создании обновления ${infobase}")
     }
@@ -102,13 +102,13 @@ def prepareUpdate(platform1c, backupDir, repServer1c, repInfobase, repIBUser, re
 //  server1c - сервер 1c
 //  infobase - имя базы на сервере 1c и sql
 //  user - имя админа 1С базы
-//  pwd - пароль админа 1С базы
+//  pass - пароль админа 1С базы
 //  backupDir - директория для сохранения бэкапа конфигурации
-//  permissionCode - код блокирования ИБ
+//  permCode - код блокирования ИБ
 //
-def updateBase(platform1c, server1c, infobase, user, owd, backupDir, permissionCode) {
+def updateBase(platform1c, server1c, infobase, user, pass, backupDir, permCode) {
     utils = new Utils()
-    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/update_ib.vbs \"${platform1c}\" \"${server1c}\" \"${infobase}\" \"${user}\" \"${pwd}\" \"${backupDir}\" \"${permissionCode}\"")
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/update_ib.vbs \"${platform1c}\" \"${server1c}\" \"${infobase}\" \"${user}\" \"${pass}\" \"${backupDir}\" \"${permCode}\"")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при обновлении информационной базы ${infobase}")
     }
