@@ -31,11 +31,13 @@ If Action = "lock" Then
     ObjBase.SessionsDenied = True
     ObjBase.ScheduledJobsDenied = True
     ObjBase.PermissionCode = PermissionCode
-    ObjBase.DeniedMessage = "Обновление информационной базы"
+    ObjBase.DeniedMessage = "Infobase update in progress"
     ObjCurrentWorkingProcess.UpdateInfoBase(ObjBase)
 ElseIf Action = "unlock" Then
     ObjBase.SessionsDenied = False
     ObjBase.ScheduledJobsDenied = False
+    ObjBase.PermissionCode = ""
+    ObjBase.DeniedMessage = ""
     ObjCurrentWorkingProcess.UpdateInfoBase(ObjBase)
 End If
 
