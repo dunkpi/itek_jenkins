@@ -46,7 +46,6 @@ pipeline {
                             assert storages1cPathList.size() == templatebasesList.size()
                         }
                         server1c = server1c.isEmpty() ? "localhost" : server1c
-                        serverSql = serverSql.isEmpty() ? "localhost" : serverSql
                         server1cPort = server1cPort.isEmpty() ? "1540" : server1cPort
                         permissionCode = permissionCode.isEmpty() ? "0000" : permissionCode
                         storagePwd = storagePwd.isEmpty() ? "default" : storagePwd
