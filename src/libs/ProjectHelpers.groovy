@@ -12,14 +12,7 @@ package libs
 //  permissionCode - код блокирования ИБ
 //
 def lockIBTask(server1c, server1cPort, infobase, user, pwd, action, permissionCode) {
-    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/lock_ib.vbs 
-                           \"${server1c}\"
-                           \"${server1cPort}\"
-                           \"${infobase}\"
-                           \"${user}\" 
-                           \"${pwd}\" 
-                           \"${action}\" 
-                           \"${permissionCode}\"")
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/lock_ib.vbs \"${server1c}\" \"${server1cPort}\" \"${infobase}\" \"${user}\" \"${pwd}\" \"${action}\" \"${permissionCode}\"")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при изменении возможности запуска РЗ для  ${infobase} на ${action}")
     }
@@ -35,12 +28,7 @@ def lockIBTask(server1c, server1cPort, infobase, user, pwd, action, permissionCo
 //  pwd - пароль админа 1С базы
 //
 def kickUsers(server1c, server1cPort, infobase, user, pwd) {
-    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/kick_users.vbs 
-                           \"${server1c}\" 
-                           \"${server1cPort}\" 
-                           \"${infobase}\" 
-                           \"${user}\" 
-                           \"${pwd}\"")
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/kick_users.vbs \"${server1c}\" \"${server1cPort}\" \"${infobase}\" \"${user}\" \"${pwd}\"")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при выбрасывании пользователей из  ${infobase}")
     }
@@ -58,14 +46,7 @@ def kickUsers(server1c, server1cPort, infobase, user, pwd) {
 //  permissionCode - код блокирования ИБ
 //
 def backupConf(platform1c, server1c, infobase, user, owd, backupDir, permissionCode) {
-    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/backup_conf.vbs 
-                           \"${platform1c}\" 
-                           \"${server1c}\" 
-                           \"${infobase}\" 
-                           \"${user}\" 
-                           \"${pwd}\" 
-                           \"${backupDir}\" 
-                           \"${permissionCode}\"")
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/backup_conf.vbs \"${platform1c}\" \"${server1c}\" \"${infobase}\" \"${user}\" \"${pwd}\" \"${backupDir}\" \"${permissionCode}\"")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при сохранении конфигурации базы ${infobase}")
     }
@@ -83,14 +64,7 @@ def backupConf(platform1c, server1c, infobase, user, owd, backupDir, permissionC
 //  permissionCode - код блокирования ИБ
 //
 def backupBase(platform1c, server1c, infobase, user, owd, backupDir, permissionCode) {
-    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/backup_ib.vbs 
-                           \"${platform1c}\" 
-                           \"${server1c}\" 
-                           \"${infobase}\" 
-                           \"${user}\" 
-                           \"${pwd}\" 
-                           \"${backupDir}\" 
-                           \"${permissionCode}\"")
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/backup_ib.vbs \"${platform1c}\" \"${server1c}\" \"${infobase}\" \"${user}\" \"${pwd}\" \"${backupDir}\" \"${permissionCode}\"")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при сохранении информационной базы ${infobase}")
     }
@@ -110,16 +84,7 @@ def backupBase(platform1c, server1c, infobase, user, owd, backupDir, permissionC
 //  repPassw - пароль пользователя хранилища
 //
 def prepareUpdate(platform1c, backupDir, repServer1c, repInfobase, repIBUser, repIBPassw, repAddress, repUser, repPassw) {
-    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/prepare_update.vbs 
-                           \"${platform1c}\" 
-                           \"${backupDir}\" 
-                           \"${repServer1c}\" 
-                           \"${repInfobase}\" 
-                           \"${repIBUser}\" 
-                           \"${repIBPassw}\" 
-                           \"${repAddress}\" 
-                           \"${repUser}\" 
-                           \"${repPassw}\"")
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/prepare_update.vbs \"${platform1c}\" \"${backupDir}\" \"${repServer1c}\" \"${repInfobase}\" \"${repIBUser}\" \"${repIBPassw}\" \"${repAddress}\" \"${repUser}\" \"${repPassw}\"")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при создании обновления ${infobase}")
     }
@@ -137,14 +102,7 @@ def prepareUpdate(platform1c, backupDir, repServer1c, repInfobase, repIBUser, re
 //  permissionCode - код блокирования ИБ
 //
 def updateBase(platform1c, server1c, infobase, user, owd, backupDir, permissionCode) {
-    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/update_ib.vbs 
-                           \"${platform1c}\" 
-                           \"${server1c}\" 
-                           \"${infobase}\" 
-                           \"${user}\" 
-                           \"${pwd}\" 
-                           \"${backupDir}\" 
-                           \"${permissionCode}\"")
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\cscript tools/update_ib.vbs \"${platform1c}\" \"${server1c}\" \"${infobase}\" \"${user}\" \"${pwd}\" \"${backupDir}\" \"${permissionCode}\"")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при обновлении информационной базы ${infobase}")
     }
