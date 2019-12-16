@@ -95,19 +95,6 @@ pipeline {
             }
         }
     }   
-    post {
-        always {
-            script {
-                if (currentBuild.result == "ABORTED") {
-                    return
-                }
-                dir ('build/out/allure') {
-                    writeFile file:'environment.properties', text:"Build=${env.BUILD_URL}"
-                }
-                allure includeProperties: false, jdk: '', results: [[path: 'build/out/allure']]
-            }
-        }
-    }
 }
 
 def lockIBTask(server1c, port1c, infobase, user, pass, action, permCode) {
