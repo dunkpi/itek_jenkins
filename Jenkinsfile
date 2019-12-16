@@ -81,10 +81,10 @@ pipeline {
                             // 6. Обновляем ИБ
                             updateIBTasks["updateIBTask_${infobase}"] = updateIBTask(platform1c, server1c, infobase, user1c, pass1c, backupDir, permCode)
                             // 7. Разблокирум запуск соединений и РЗ
-                            lockIBTasks["lockIBTask_${infobase}"] = lockIBTask(server1c, port1c, infobase, user1c, pass1c, "unlock", permCode)
+                            unlockIBTasks["unlockIBTask_${infobase}"] = lockIBTask(server1c, port1c, infobase, user1c, pass1c, "unlock", permCode)
                         }
-                        parallel kickUsersTasks
                         parallel lockIBTasks
+                        parallel kickUsersTasks
                         parallel backupConfTasks
                         parallel backupBaseTasks
                         parallel prepareUpdateTasks

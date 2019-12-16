@@ -1,6 +1,6 @@
 ' Скрипт создания выгрузки ИБ
 
-Dim Platform1C, Server1c, Infobase, User, Passw, BackupDir, PermissionCode, ' Входные параметры
+Dim Platform1C, Server1c, Infobase, User, Passw, BackupDir, PermissionCode ' Входные параметры
 Dim ObjShell
 Dim BackupName
 

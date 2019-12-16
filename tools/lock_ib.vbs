@@ -1,6 +1,6 @@
 ' Скрипт управления доступом к старту РЗ в ИБ
 
-Dim Server1c, AgentPort, Infobase, User, Passw, Action, PermissionCode ' Входные параметры
+Dim Server1c, AgentPort, Infobase, User, Passw, Action, PermissionCode, ' Входные параметры
 Dim ObjV83Com, ObjServerAgent, ObjCluster, ObjWorkingProcess, ObjCurrentWorkingProcess, ObjBase
 Dim Bases, Connections
 Dim i
