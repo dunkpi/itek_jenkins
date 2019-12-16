@@ -1,5 +1,6 @@
 @Library("shared-libraries")
 import libs.ProjectHelpers
+import libs.Utils
 
 def projectHelpers = new ProjectHelpers()
 def kickUsersTasks = [:]
