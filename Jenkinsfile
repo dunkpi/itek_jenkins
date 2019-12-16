@@ -2,7 +2,9 @@
 import libs.ProjectHelpers
 import libs.Utils
 
+def utils = new Utils()
 def projectHelpers = new ProjectHelpers()
+
 def kickUsersTasks = [:]
 def lockIBTasks = [:]
 def backupConfTasks = [:]
