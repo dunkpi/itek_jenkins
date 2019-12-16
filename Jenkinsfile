@@ -54,10 +54,6 @@ pipeline {
                         port1c = port1c.isEmpty() ? "1540" : port1c
                         repPass = repPass.isEmpty() ? "default" : repPass
                         permCode = permCode.isEmpty() ? "0000" : permCode
-                        // создаем пустые каталоги
-                        dir ('build') {
-                            writeFile file:'dummy', text:''
-                        }
                     }
                 }
             }
