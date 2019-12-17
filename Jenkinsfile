@@ -16,7 +16,7 @@ def unlockIBTasks = [:]
 pipeline {
     parameters {
         string(defaultValue: "${env.jenkinsAgent}", description: 'Нода дженкинса, на которой запускать пайплайн. По умолчанию master', name: 'jenkinsAgent')
-        string(defaultValue: "${env.platform1c}", description: 'Версия платформы 1с, например 8.3.14.1694', name: 'platform1c')
+        string(defaultValue: "${env.platform1c}", description: 'Версия платформы 1с, например 8.3.14.1694. По умолчанию будет использована последня версия среди установленных', name: 'platform1c')
         string(defaultValue: "${env.server1c}", description: 'Имя сервера 1с, по умолчанию localhost', name: 'server1c')
         string(defaultValue: "${env.port1c}", description: 'Порт сервера 1с. По умолчанию 1540. Не путать с портом агента кластера (1541)', name: 'port1c')
         string(defaultValue: "${env.infobases}", description: 'Список баз для обновления через запятую. Например c83_ack,c83_ato', name: 'infobases')
