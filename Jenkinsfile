@@ -85,7 +85,7 @@ pipeline {
                         // parallel backupConfTasks
                         // parallel backupBaseTasks
                         // parallel prepareUpdateTasks
-                        parallel updateIBTasks
+                        // parallel updateIBTasks
                         parallel unlockIBTasks
                     }
                 }
