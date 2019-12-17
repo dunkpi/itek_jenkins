@@ -15,7 +15,7 @@ PermissionCode = Wscript.Arguments(6)
 BackupName = Infobase & "_" & CurrentDTFormat()
 
 Set ObjShell = CreateObject("WScript.Shell")
-ObjShell.Run """C:\Program Files (x86)\1cv8\" & Platform1C & "\bin\1cv8.exe"" DESIGNER" & _
+ObjShell.Run """" & Platform1C & """ DESIGNER" & _
 " /S""" & Server1c & "\" & Infobase & """" & _
 " /N""" & User & """ /P""" & Passw & """" & _
 " /UC " & PermissionCode & _

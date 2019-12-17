@@ -21,7 +21,7 @@ End If
 Set ObjShell = CreateObject("WScript.Shell")
 
 'Создание файла обновления
-ObjShell.Run """C:\Program Files (x86)\1cv8\" & Platform1C & "\bin\1cv8.exe"" DESIGNER" & _
+ObjShell.Run """" & Platform1C & """ DESIGNER" & _
 " /S""" & RepServer1c & "\" & RepInfobase & """" & _
 " /N""" & RepIBUser & """ /P""" & RepIBPassw & """" & _
 " /Out""" & BackupDir & "\log_Step2_CreateDistribFiles.txt""" & _

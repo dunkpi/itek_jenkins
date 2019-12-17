@@ -19,14 +19,14 @@ End If
 Set ObjShell = CreateObject("WScript.Shell")
 
 'Обновление конфигурации
-ObjShell.Run """C:\Program Files (x86)\1cv8\" & Platform1C & "\bin\1cv8.exe"" DESIGNER" & _
+ObjShell.Run """" & Platform1C & """ DESIGNER" & _
 " /S""" & Server1c & "\" & Infobase & """" & _
 " /N""" & User & """ /P""" & Passw & """" & _
 " /Out""" & BackupDir & "\log_Step3_UpdateCfg.txt""" & _
 " /DisableStartupMessages /LoadCfg """ & BackupDir & "\update.cf""",, True
 
 'Обновление конфигурации БД
-ObjShell.Run """C:\Program Files (x86)\1cv8\" & Platform1C & "\bin\1cv8.exe"" DESIGNER" & _
+ObjShell.Run """" & Platform1C & """ DESIGNER" & _
 " /S""" & Server1c & "\" & Infobase & """" & _
 " /N""" & User & """ /P""" & Passw & """" & _
 " /Out""" & BackupDir & "\log_Step4_UpdateDBCfg.txt""" & _
