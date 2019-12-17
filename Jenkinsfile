@@ -49,7 +49,7 @@ pipeline {
                         if (repPathList.size() != 0) {
                             assert repPathList.size() == infobasesList.size()
                         }
-                        platform1c = "C:\\Program Files (x86)\\1cv8\\" + platform1c.isEmpty ? "common\\1cestart.exe" : (platform1c + "\\bin\\1cv8.exe")
+                        platform1c = "C:\\Program Files (x86)\\1cv8\\" + platform1c.isEmpty() ? "common\\1cestart.exe" : (platform1c + "\\bin\\1cv8.exe")
                         server1c = server1c.isEmpty() ? "localhost" : server1c
                         repServer1c = repServer1c.isEmpty() ? "localhost" : repServer1c
                         port1c = port1c.isEmpty() ? "1540" : port1c
@@ -85,7 +85,7 @@ pipeline {
                         // parallel backupConfTasks
                         // parallel backupBaseTasks
                         // parallel prepareUpdateTasks
-                        // parallel updateIBTasks
+                        parallel updateIBTasks
                         parallel unlockIBTasks
                     }
                 }
